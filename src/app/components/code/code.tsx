@@ -1,3 +1,4 @@
+"use server";
 import { AnnotationHandler, Pre, RawCode, highlight } from "codehike/code";
 
 import { mark } from "./mark";
@@ -91,8 +92,6 @@ export async function toCodeGroup(props: {
       const { flags, title } = extractFlags(tab);
       const tabOptions = flagsToOptions(flags);
       const options = { ...groupOptions, ...tabOptions };
-      // get the user_id from the users cookies
-
       if (groupOptions.runable) {
         const { mirrorUrl, wsMirrorUrl } = await getMirrorInstance();
         tab.value = tab.value.replace(
